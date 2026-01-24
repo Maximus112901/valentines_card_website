@@ -1,5 +1,5 @@
 import React from 'react';
-import { PresentedMessage } from '../../../interface_adapters/presenters/ValentinePresenter';
+import type { PresentedMessage } from '../../../interface_adapters/presenters/ValentinePresenter';
 
 interface ValentineCardProps {
   message: PresentedMessage;

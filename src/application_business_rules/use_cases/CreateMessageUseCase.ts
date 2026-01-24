@@ -1,5 +1,5 @@
 import { ValentineMessage } from '../../enterprise_business_rules/entities/ValentineMessage';
-import { IMessageRepository } from '../../interface_adapters/gateways/IMessageRepository';
+import type { IMessageRepository } from '../../interface_adapters/gateways/IMessageRepository';
 
 export class CreateMessageUseCase {
   private messageRepository: IMessageRepository;

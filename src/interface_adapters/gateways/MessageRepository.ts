@@ -1,6 +1,6 @@
-import { IMessageRepository } from './IMessageRepository';
+import type { IMessageRepository } from './IMessageRepository';
 import { ValentineMessage } from '../../enterprise_business_rules/entities/ValentineMessage';
-import { IMessageService } from '../../frameworks_and_drivers/services/IMessageService';
+import type { IMessageService } from '../../frameworks_and_drivers/services/IMessageService';
 
 export class MessageRepository implements IMessageRepository {
   private service: IMessageService;

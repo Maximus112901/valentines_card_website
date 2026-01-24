@@ -1,4 +1,4 @@
-import { ValentineMessage } from './enterprise_business_rules/entities/ValentineMessage';
+import { ValentineMessage } from '../entities/ValentineMessage'
 
 export const presetMessages: ValentineMessage[] = [
   new ValentineMessage('You are my sunshine!'),
