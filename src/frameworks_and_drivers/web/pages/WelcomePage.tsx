@@ -7,7 +7,7 @@ interface WelcomePageProps {
 
 export function WelcomePage({ onEvent }: WelcomePageProps) {
   return (
-    <div className="app-container">
+    <div className="page-content-container">
       <h1>{WELCOME_PAGE_MESSAGES.title}</h1>
 
       <button onClick={() => onEvent(ValentineEvent.accept())}>{BUTTON_LABELS.yes}</button>

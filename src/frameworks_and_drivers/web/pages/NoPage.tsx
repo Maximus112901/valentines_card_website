@@ -7,7 +7,7 @@ interface NoPageProps {
 
 export function NoPage({ onEvent }: NoPageProps) {
   return (
-    <div className="app-container">
+    <div className="page-content-container">
       <h1>{NO_PAGE_MESSAGES.title}</h1>
       <p>{NO_PAGE_MESSAGES.message}</p>
       <button onClick={() => onEvent(ValentineEvent.reset())}>{BUTTON_LABELS.goBack}</button>

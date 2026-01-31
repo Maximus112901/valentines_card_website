@@ -19,14 +19,14 @@ export function App() {
     }
   }
 
-  switch (scenario.toString()) {
-    case 'WELCOME':
-      return <WelcomePage onEvent={handleEvent} />;
-    case 'ACCEPTED':
-      return <YesPage onEvent={handleEvent} />;
-    case 'REJECTED':
-      return <NoPage onEvent={handleEvent} />;
-    default:
-      return <div>Unknown scenario</div>;
-  }
+  return (
+    <div className="page-container">
+      {scenario.toString() === 'WELCOME' && <WelcomePage onEvent={handleEvent} />}
+      {scenario.toString() === 'ACCEPTED' && <YesPage onEvent={handleEvent} />}
+      {scenario.toString() === 'REJECTED' && <NoPage onEvent={handleEvent} />}
+      {!(["WELCOME", "ACCEPTED", "REJECTED"].includes(scenario.toString())) && (
+        <div>Unknown scenario</div>
+      )}
+    </div>
+  );
 }

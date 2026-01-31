@@ -7,7 +7,7 @@ interface YesPageProps {
 
 export function YesPage({ onEvent }: YesPageProps) {
   return (
-    <div className="app-container">
+    <div className="page-content-container">
       <h1>{YES_PAGE_MESSAGES.title}</h1>
       <p>{YES_PAGE_MESSAGES.message}</p>
       <button onClick={() => onEvent(ValentineEvent.reset())}>{BUTTON_LABELS.goBack}</button>
