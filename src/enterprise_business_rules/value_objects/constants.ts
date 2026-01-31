@@ -1,15 +1,19 @@
 export const BUTTON_LABELS = {
-  submit: 'Send Love',
-  cancel: 'Cancel',
-  reset: 'Reset Message',
+  yes: 'Yes',
+  no: 'No',
+  goBack: 'Go back',
 };
 
-export const GENERIC_MESSAGES = {
-  welcome: 'Welcome to the Valentine’s Card!',
-  defaultMessage: 'Happy Valentine’s Day! ❤️',
-  error: 'Oops! Something went wrong.',
+export const WELCOME_PAGE_MESSAGES = {
+  title: 'Will you be my Valentine? 💖',
 };
 
-export const HEART_ANIMATION = {
-  title: 'Beating Heart Animation',
+export const YES_PAGE_MESSAGES = {
+  title: 'Yay!!! 💕', 
+  message: 'You just made my heart very happy.',
 };
+
+export const NO_PAGE_MESSAGES = {
+  title: '😢',
+  message: 'Are you sure? My heart says try again.'
+}
