@@ -23,7 +23,7 @@ export function decideNextScenario(
 ): ValentineScenario {
   const from = current.toString();
   const by = event.toString();
-
+  
   const next = transitions[from]?.[by];
 
   if (!next) {

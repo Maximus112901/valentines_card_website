@@ -20,6 +20,10 @@ describe('ValentineScenario', () => {
     expect(
       ValentineScenario.welcome().equals(ValentineScenario.accepted())
     ).toBe(false);
+
+    expect(
+      ValentineScenario.welcome().equals(ValentineScenario.rejected())
+    ).toBe(false);
   });
 
   it('throws for invalid scenario strings', () => {

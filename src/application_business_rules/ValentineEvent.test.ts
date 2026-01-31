@@ -20,6 +20,10 @@ describe('ValentineEvent', () => {
     expect(
       ValentineEvent.accept().equals(ValentineEvent.reject())
     ).toBe(false);
+
+    expect(
+      ValentineEvent.reset().equals(ValentineEvent.reset())
+    ).toBe(true);
   });
 
   it('throws for invalid event strings', () => {

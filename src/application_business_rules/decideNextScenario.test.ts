@@ -41,4 +41,17 @@ describe('decideNextScenario', () => {
       }
     }
   });
+
+  it('test', () => {
+    const current = ValentineScenario.fromString('nonExistentScenario');
+    const event = ValentineEvent.fromString('someEvent');
+
+    // Assuming transitions is imported or accessible and you can mock it
+    // Otherwise, you may need to mock the module or redefine transitions here
+
+    expect(() => {
+      decideNextScenario(current, event);
+    }).toThrow();
+  })
+
 });
