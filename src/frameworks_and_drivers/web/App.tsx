@@ -1,11 +1,19 @@
-import { ValentineCard } from './components/ValentineCard';
-import { HeartAnimation } from './components/HeartAnimation';
+import { HashRouter, Routes, Route } from 'react-router-dom';
+
+import { ROUTES } from './pages/routes';
+
+import { WelcomePage } from './pages/WelcomePage';
+import { YesPage } from './pages/YesPage';
+import { NoPage } from './pages/NoPage';
 
 export function App() {
   return (
-    <div className="app-container">
-      <HeartAnimation />
-      <ValentineCard message={"Hello World!"} />
-    </div>
+    <HashRouter>
+      <Routes>
+        <Route path={ROUTES.WELCOME} element={<WelcomePage />} />
+        <Route path={ROUTES.YES} element={<YesPage />} />
+        <Route path={ROUTES.NO} element={<NoPage />} />
+      </Routes>
+    </HashRouter>
   );
 }

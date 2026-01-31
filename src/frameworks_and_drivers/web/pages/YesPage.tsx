@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { BUTTON_LABELS, YES_PAGE_MESSAGES } from '../../../enterprise_business_rules/value_objects/constants';
+import { ROUTES } from './routes';
 
 export function YesPage() {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ export function YesPage() {
 
       <button
         style={{ marginTop: '2rem' }}
-        onClick={() => navigate('/')}
+        onClick={() => navigate(ROUTES.WELCOME)}
       >
         {BUTTON_LABELS.goBack}
       </button>

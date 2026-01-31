@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { BUTTON_LABELS, NO_PAGE_MESSAGES } from '../../../enterprise_business_rules/value_objects/constants';
+import { ROUTES } from './routes';
 
 export function NoPage() {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ export function NoPage() {
 
       <button
         style={{ marginTop: '2rem' }}
-        onClick={() => navigate('/')}
+        onClick={() => navigate(ROUTES.WELCOME)}
       >
         {BUTTON_LABELS.goBack}
       </button>
