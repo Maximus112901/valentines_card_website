@@ -1,21 +1,16 @@
-import { useNavigate } from 'react-router-dom';
 import { BUTTON_LABELS, YES_PAGE_MESSAGES } from '../constants';
-import { ROUTES } from './routes';
+import { ValentineEvent } from '../../../application_business_rules/ValentineEvent';
 
-export function YesPage() {
-  const navigate = useNavigate();
+interface YesPageProps {
+  onEvent: (event: ValentineEvent) => void;
+}
 
+export function YesPage({ onEvent }: YesPageProps) {
   return (
     <div className="app-container">
       <h1>{YES_PAGE_MESSAGES.title}</h1>
       <p>{YES_PAGE_MESSAGES.message}</p>
-
-      <button
-        style={{ marginTop: '2rem' }}
-        onClick={() => navigate(ROUTES.WELCOME)}
-      >
-        {BUTTON_LABELS.goBack}
-      </button>
+      <button onClick={() => onEvent(ValentineEvent.reset())}>{BUTTON_LABELS.goBack}</button>
     </div>
   );
 }

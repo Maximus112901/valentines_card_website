@@ -1,21 +1,16 @@
-import { useNavigate } from 'react-router-dom';
 import { BUTTON_LABELS, NO_PAGE_MESSAGES } from '../constants';
-import { ROUTES } from './routes';
+import { ValentineEvent } from '../../../application_business_rules/ValentineEvent';
 
-export function NoPage() {
-  const navigate = useNavigate();
+interface NoPageProps {
+  onEvent: (event: ValentineEvent) => void;
+}
 
+export function NoPage({ onEvent }: NoPageProps) {
   return (
     <div className="app-container">
       <h1>{NO_PAGE_MESSAGES.title}</h1>
       <p>{NO_PAGE_MESSAGES.message}</p>
-
-      <button
-        style={{ marginTop: '2rem' }}
-        onClick={() => navigate(ROUTES.WELCOME)}
-      >
-        {BUTTON_LABELS.goBack}
-      </button>
+      <button onClick={() => onEvent(ValentineEvent.reset())}>{BUTTON_LABELS.goBack}</button>
     </div>
   );
 }
