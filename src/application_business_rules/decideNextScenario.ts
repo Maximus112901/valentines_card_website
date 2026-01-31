@@ -1,40 +1,35 @@
 import { ValentineScenario } from '../enterprise_business_rules/value_objects/ValentineScenario';
 import { ValentineEvent } from './ValentineEvent';
 
+type ScenarioKey = ReturnType<typeof ValentineScenario.prototype.toString>;
+type EventKey = ReturnType<typeof ValentineEvent.prototype.toString>;
+
+const transitions: Record<ScenarioKey, Partial<Record<EventKey, ScenarioKey>>> = {
+  WELCOME: {
+    ACCEPT: 'ACCEPTED',
+    REJECT: 'REJECTED',
+  },
+  ACCEPTED: {
+    RESET: 'WELCOME',
+  },
+  REJECTED: {
+    RESET: 'WELCOME',
+  },
+};
+
 export function decideNextScenario(
   current: ValentineScenario,
   event: ValentineEvent
 ): ValentineScenario {
-  switch (current.toString()) {
-    case 'WELCOME':
-      switch (event.toString()) {
-        case 'ACCEPT':
-          return ValentineScenario.accepted();
-        case 'REJECT':
-          return ValentineScenario.rejected();
-        case 'RESET':
-          return ValentineScenario.welcome();
-        default:
-          throw new Error(`Invalid event ${event} in WELCOME state`);
-      }
+  const from = current.toString();
+  const by = event.toString();
 
-    case 'ACCEPTED':
-      switch (event.toString()) {
-        case 'RESET':
-          return ValentineScenario.welcome();
-        default:
-          throw new Error(`Invalid event ${event} in ACCEPTED state`);
-      }
+  const next = transitions[from]?.[by];
 
-    case 'REJECTED':
-      switch (event.toString()) {
-        case 'RESET':
-          return ValentineScenario.welcome();
-        default:
-          throw new Error(`Invalid event ${event} in REJECTED state`);
-      }
-
-    default:
-      throw new Error(`Unknown scenario ${current}`);
+  if (!next) {
+    throw new Error(`Invalid transition from ${from} using event ${by}`);
   }
+
+  return ValentineScenario.fromString(next);
 }
+

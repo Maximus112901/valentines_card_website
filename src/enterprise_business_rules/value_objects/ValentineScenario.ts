@@ -3,6 +3,10 @@ export type ValentineScenarioType =
   | 'ACCEPTED'
   | 'REJECTED';
 
+function isScenarioType(value: string): value is ValentineScenarioType {
+  return ['WELCOME', 'ACCEPTED', 'REJECTED'].includes(value);
+}
+
 export class ValentineScenario {
   public readonly value: ValentineScenarioType;
 
@@ -22,6 +26,13 @@ export class ValentineScenario {
 
   static rejected(): ValentineScenario {
     return new ValentineScenario('REJECTED');
+  }
+
+  static fromString(value: string): ValentineScenario {
+    if (!isScenarioType(value)) {
+      throw new Error(`Invalid ValentineScenario: ${value}`);
+    }
+    return new ValentineScenario(value);
   }
 
   equals(other: ValentineScenario): boolean {

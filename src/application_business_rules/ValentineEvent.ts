@@ -24,6 +24,13 @@ export class ValentineEvent {
     return new ValentineEvent('RESET');
   }
 
+  static fromString(value: string): ValentineEvent {
+    if (!isEventType(value)) {
+      throw new Error(`Invalid ValentineEvent: ${value}`);
+    }
+    return new ValentineEvent(value);
+  }
+
   equals(other: ValentineEvent): boolean {
     return this.type === other.type;
   }
@@ -31,4 +38,8 @@ export class ValentineEvent {
   toString(): string {
     return this.type;
   }
+}
+
+function isEventType(value: string): value is ValentineEventType {
+  return ['ACCEPT', 'REJECT', 'RESET'].includes(value);
 }
