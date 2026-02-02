@@ -1,7 +1,7 @@
 export const BUTTON_LABELS = {
   yes: 'Yes',
   no: 'No',
-  goBack: 'Go back',
+  goBack: 'Try again',
 };
 
 export const WELCOME_PAGE_MESSAGES = {
