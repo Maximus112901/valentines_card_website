@@ -14,7 +14,7 @@ export const transitions: Record<ScenarioKey, Partial<Record<EventKey, ScenarioK
   },
   ARE_YOU_SURE: {
     ACCEPT: 'ACCEPTED',
-    REJECT: 'REJECTED'
+    REJECT: 'ARE_YOU_SURE'
   },
   REJECTED: {
     RESET: 'WELCOME',
