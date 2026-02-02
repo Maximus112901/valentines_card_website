@@ -4,6 +4,7 @@ describe('ValentineScenario', () => {
   const scenarios = [
     'WELCOME',
     'ACCEPTED',
+    'ARE_YOU_SURE',
     'REJECTED',
   ] as const;
 
@@ -24,6 +25,11 @@ describe('ValentineScenario', () => {
     expect(
       ValentineScenario.welcome().equals(ValentineScenario.rejected())
     ).toBe(false);
+
+    expect(
+      ValentineScenario.areYouSure().equals(ValentineScenario.areYouSure())
+    ).toBe(true);
+
   });
 
   it('throws for invalid scenario strings', () => {

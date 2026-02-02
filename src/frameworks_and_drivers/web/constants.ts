@@ -13,7 +13,12 @@ export const YES_PAGE_MESSAGES = {
   message: 'You just made my heart very happy.',
 };
 
-export const NO_PAGE_MESSAGES = {
+export const ARE_YOU_SURE_PAGE_MESSAGES = {
   title: '😢',
   message: 'Are you sure? My heart says try again.'
+}
+
+export const NO_PAGE_MESSAGES = {
+  title: '🥺',
+  message: 'I am really sad now.'
 }

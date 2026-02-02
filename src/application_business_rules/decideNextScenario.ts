@@ -4,13 +4,17 @@ import { ValentineEvent } from './ValentineEvent';
 type ScenarioKey = ReturnType<typeof ValentineScenario.prototype.toString>;
 type EventKey = ReturnType<typeof ValentineEvent.prototype.toString>;
 
-const transitions: Record<ScenarioKey, Partial<Record<EventKey, ScenarioKey>>> = {
+export const transitions: Record<ScenarioKey, Partial<Record<EventKey, ScenarioKey>>> = {
   WELCOME: {
     ACCEPT: 'ACCEPTED',
-    REJECT: 'REJECTED',
+    REJECT: 'ARE_YOU_SURE',
   },
   ACCEPTED: {
     RESET: 'WELCOME',
+  },
+  ARE_YOU_SURE: {
+    ACCEPT: 'ACCEPTED',
+    REJECT: 'REJECTED'
   },
   REJECTED: {
     RESET: 'WELCOME',

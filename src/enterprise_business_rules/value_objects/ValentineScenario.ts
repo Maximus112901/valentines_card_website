@@ -1,10 +1,11 @@
 export type ValentineScenarioType =
   | 'WELCOME'
   | 'ACCEPTED'
+  | 'ARE_YOU_SURE'
   | 'REJECTED';
 
 function isScenarioType(value: string): value is ValentineScenarioType {
-  return ['WELCOME', 'ACCEPTED', 'REJECTED'].includes(value);
+  return ['WELCOME', 'ACCEPTED', 'ARE_YOU_SURE', 'REJECTED'].includes(value);
 }
 
 export class ValentineScenario {
@@ -22,6 +23,10 @@ export class ValentineScenario {
 
   static accepted(): ValentineScenario {
     return new ValentineScenario('ACCEPTED');
+  }
+
+  static areYouSure(): ValentineScenario {
+    return new ValentineScenario('ARE_YOU_SURE');
   }
 
   static rejected(): ValentineScenario {
