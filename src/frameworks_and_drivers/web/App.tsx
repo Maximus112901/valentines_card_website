@@ -7,13 +7,15 @@ import { WelcomePage } from './pages/WelcomePage';
 import { YesPage } from './pages/YesPage';
 import { NoPage } from './pages/NoPage';
 import { AreYouSurePage } from './pages/AreYouSurePage';
+import { useAppState } from './context/AppStateContext';
 
 export function App() {
+  const { state } = useAppState();
   const [scenario, setScenario] = useScenarioRouting(ValentineScenario.welcome());
 
   function handleEvent(event: ValentineEvent) {
     try {
-      const nextScenario = decideNextScenario(scenario, event);
+      const nextScenario = decideNextScenario(scenario, event, state);
       setScenario(nextScenario);
     } catch (error) {
       console.error(error);

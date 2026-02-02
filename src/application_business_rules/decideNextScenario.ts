@@ -18,16 +18,26 @@ export const transitions: Record<ScenarioKey, Partial<Record<EventKey, ScenarioK
   },
   REJECTED: {
     RESET: 'WELCOME',
-  },
+  }
 };
 
 export function decideNextScenario(
   current: ValentineScenario,
-  event: ValentineEvent
+  event: ValentineEvent,
+  context?: {noPressCount: number}
 ): ValentineScenario {
   const from = current.toString();
   const by = event.toString();
   
+  // special case (noPressCount > 10):
+   if (from === 'ARE_YOU_SURE' && by === 'REJECT') {
+    if ((context?.noPressCount ?? 0) >= 10) {
+      // Override transition to a special scenario after X NO presses
+      return ValentineScenario.fromString('REJECTED');
+    }
+  }
+
+  // normal transitions
   const next = transitions[from]?.[by];
 
   if (!next) {
