@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Maximus112901.github.io/valentines_card_website",
+  "homepage": "https://maximus112901.github.io/valentines_card_website/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
