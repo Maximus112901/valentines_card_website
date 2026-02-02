@@ -3,12 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://Maximus112901.github.io/valentines_card_website",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "jest-environment-jsdom": "^30.2.0",
@@ -28,6 +30,7 @@
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
+    "gh-pages": "^6.3.0",
     "globals": "^16.5.0",
     "jest": "^30.2.0",
     "ts-jest": "^29.4.6",
