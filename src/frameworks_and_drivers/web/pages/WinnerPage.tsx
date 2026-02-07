@@ -5,7 +5,7 @@ interface PageProps {
   onEvent: (event: ValentineEvent) => void;
 }
 
-export function WelcomePage({ onEvent }: PageProps) {
+export function WinnerPage({ onEvent }: PageProps) {
   return (
     <div className="page-content-container">
       <h1>{WELCOME_PAGE_MESSAGES.title}</h1>
