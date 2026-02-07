@@ -2,30 +2,38 @@ import React, { createContext, useContext, useReducer } from 'react';
 import type { ReactNode } from 'react';
 
 // Define the shape of your app state
+type Suit = 'clubs' | 'diamonds' | 'hearts' | 'spades';
+
 interface AppState {
-  noPressCount: number;
+  cards: Record<Suit, boolean>;
 }
 
 // Define the actions your state can handle
 type Action =
-  | { type: 'INCREMENT_NO_PRESS' }
-  | { type: 'RESET_NO_PRESS' };
+  | { suit: 'clubs', payload: Boolean }
+  | { suit: 'diamonds', payload: Boolean }
+  | { suit: 'hearts', payload: Boolean }
+  | { suit: 'spades', payload: Boolean }
 
 // Initial state
 const initialState: AppState = {
-  noPressCount: 0,
+  cards: {
+    clubs: false,
+    diamonds: false,
+    hearts: false,
+    spades: false,
+  },
 };
 
 // Reducer to handle state changes
 function appStateReducer(state: AppState, action: Action): AppState {
-  switch (action.type) {
-    case 'INCREMENT_NO_PRESS':
-      return { ...state, noPressCount: state.noPressCount + 1 };
-    case 'RESET_NO_PRESS':
-      return { ...state, noPressCount: 0 };
-    default:
-      return state;
-  }
+  return {
+    ...state,
+    cards: {
+      ...state.cards,
+      [action.suit]: action.payload,
+    },
+  };
 }
 
 // Context value type
