@@ -1,8 +1,16 @@
-export type ValentineEventType =
-  | 'ACCEPT'
-  | 'REJECT'
-  | 'RESET';
+const VALENTINE_EVENTS = [
+  'WIN',
+  'LOSE',
+  'GO_BACK',
+] as const;
 
+export type ValentineEventType = typeof VALENTINE_EVENTS[number];
+
+  function isEventType(
+  value: string
+): value is ValentineEventType {
+  return (VALENTINE_EVENTS as readonly string[]).includes(value);
+}
 export class ValentineEvent {
   public readonly type: ValentineEventType;
 
@@ -13,15 +21,15 @@ export class ValentineEvent {
 
   // Factory methods
   static accept(): ValentineEvent {
-    return new ValentineEvent('ACCEPT');
+    return new ValentineEvent('WIN');
   }
 
   static reject(): ValentineEvent {
-    return new ValentineEvent('REJECT');
+    return new ValentineEvent('LOSE');
   }
 
   static reset(): ValentineEvent {
-    return new ValentineEvent('RESET');
+    return new ValentineEvent('GO_BACK');
   }
 
   static fromString(value: string): ValentineEvent {
@@ -38,8 +46,4 @@ export class ValentineEvent {
   toString(): string {
     return this.type;
   }
-}
-
-function isEventType(value: string): value is ValentineEventType {
-  return ['ACCEPT', 'REJECT', 'RESET'].includes(value);
 }
