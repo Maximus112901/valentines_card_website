@@ -4,6 +4,7 @@ import { decideNextScenario } from '../../application_business_rules/decideNextS
 import { useScenarioRouting } from './hooks/useScenarioRouting';
 
 import { WelcomePage } from './pages/WelcomePage';
+import { ClubsPage } from './pages/ClubsPage';
 
 
 export function App() {
@@ -21,6 +22,7 @@ export function App() {
   return (
     <div className="page-container">
       {scenario.toString() === 'WELCOME' && <WelcomePage onEvent={handleEvent} />}
+      {scenario.toString() === 'CLUBS' && <ClubsPage onEvent={handleEvent} />}
     </div>
   );
 }

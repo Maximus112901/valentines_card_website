@@ -6,14 +6,13 @@ type EventKey = ReturnType<typeof ValentineEvent.prototype.toString>;
 
 const transitions: Record<ScenarioKey, Partial<Record<EventKey, ScenarioKey>>> = {
   WELCOME: {
-    ACCEPT: 'ACCEPTED',
-    REJECT: 'REJECTED',
+    CLUBS: 'CLUBS',
+    DIAMONDS: 'DIAMONDS',
+    HEARTS: 'HEARTS',
+    SPADES: 'SPADES',
   },
-  ACCEPTED: {
-    RESET: 'WELCOME',
-  },
-  REJECTED: {
-    RESET: 'WELCOME',
+  CLUBS: {
+    GO_BACK: 'WELCOME',
   },
 };
 

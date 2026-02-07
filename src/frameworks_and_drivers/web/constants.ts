@@ -1,7 +1,5 @@
 export const BUTTON_LABELS = {
-  yes: 'Yes',
-  no: 'No',
-  goBack: 'Go back',
+  GO_BACK: '🏠︎',
 };
 
 export const SUITS = {
