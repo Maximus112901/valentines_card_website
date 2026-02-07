@@ -27,7 +27,7 @@ export function SuitPage({ onEvent, suit, suit_game }: SuitPageProps) {
             <p>{suit.EN_MESSAGE}</p>
 
             <div className="game-container">
-                {/* <SuitGame /> */}
+                <SuitGame />
             </div>
 
             <button onClick={() => onEvent(ValentineEvent.goBack())}>{BUTTON_LABELS.GO_BACK}</button>
