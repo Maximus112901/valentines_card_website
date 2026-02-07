@@ -1,10 +1,19 @@
-export type ValentineScenarioType =
-  | 'WELCOME'
-  | 'ACCEPTED'
-  | 'REJECTED';
+const VALENTINE_SCENARIOS = [
+  'WELCOME',
+  'CLUBS',
+  'DIAMONDS',
+  'HEARTS',
+  'SPADES',
+  'WINNER',
+  'LOSER',
+] as const;
 
-function isScenarioType(value: string): value is ValentineScenarioType {
-  return ['WELCOME', 'ACCEPTED', 'REJECTED'].includes(value);
+export type ValentineScenarioType = typeof VALENTINE_SCENARIOS[number];
+
+function isScenarioType(
+  value: string
+): value is ValentineScenarioType {
+  return (VALENTINE_SCENARIOS as readonly string[]).includes(value);
 }
 
 export class ValentineScenario {
@@ -20,12 +29,28 @@ export class ValentineScenario {
     return new ValentineScenario('WELCOME');
   }
 
-  static accepted(): ValentineScenario {
-    return new ValentineScenario('ACCEPTED');
+  static clubs(): ValentineScenario {
+    return new ValentineScenario('CLUBS');
   }
 
-  static rejected(): ValentineScenario {
-    return new ValentineScenario('REJECTED');
+  static diamonds(): ValentineScenario {
+    return new ValentineScenario('DIAMONDS');
+  }
+
+  static hearts(): ValentineScenario {
+    return new ValentineScenario('HEARTS');
+  }
+
+  static spades(): ValentineScenario {
+    return new ValentineScenario('SPADES');
+  }
+
+  static winner(): ValentineScenario {
+    return new ValentineScenario('WINNER');
+  }
+
+  static loser(): ValentineScenario {
+    return new ValentineScenario('LOSER');
   }
 
   static fromString(value: string): ValentineScenario {
