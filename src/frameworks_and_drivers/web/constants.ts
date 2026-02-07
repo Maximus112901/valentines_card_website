@@ -4,8 +4,15 @@ export const BUTTON_LABELS = {
   goBack: 'Go back',
 };
 
+export const SUITS = {
+  CLUBS: '♣️',
+  DIAMONDS: '♦️',
+  HEARTS: '♥️',
+  SPADES: '♠️',
+}
+
 export const WELCOME_PAGE_MESSAGES = {
-  EMOJIS: '♣️♦️♥️♠️',
+  ICON: Object.values(SUITS).join(),
   JA_TITLE: 'ウィンチー・イン・バレンタインズ',
   EN_TITLE: 'Winchi in Valentines',
   JA_MESSAGE: 'バランスこそがすべての鍵です。',
@@ -13,7 +20,7 @@ export const WELCOME_PAGE_MESSAGES = {
 };
 
 export const CLUBS_PAGE_MESSAGES = {
-  EMOJIS: '♣️',
+  ICON: SUITS.CLUBS,
   JA_TITLE: 'バランスゲーム',
   EN_TITLE: 'BALANCE GAME',
   JA_MESSAGE: 'バランスこそがすべての鍵です。',
@@ -21,7 +28,7 @@ export const CLUBS_PAGE_MESSAGES = {
 }
 
 export const DIAMONDS_PAGE_MESSAGES = {
-  EMOJIS: '♦️',
+  ICON: SUITS.DIAMONDS,
   JA_TITLE: '',
   EN_TITLE: '',
   JA_MESSAGE: '',
@@ -30,7 +37,7 @@ export const DIAMONDS_PAGE_MESSAGES = {
 
 
 export const HEARTS_PAGE_MESSAGES = {
-  EMOJIS: '♥️',
+  ICON: SUITS.HEARTS,
   JA_TITLE: '',
   EN_TITLE: '',
   JA_MESSAGE: '',
@@ -39,7 +46,7 @@ export const HEARTS_PAGE_MESSAGES = {
 
 
 export const SPADES_PAGE_MESSAGES = {
-  EMOJIS: '♠️',
+  ICON: SUITS.SPADES,
   JA_TITLE: 'タグ',
   EN_TITLE: 'TAG',
   JA_MESSAGE: '',
@@ -48,13 +55,13 @@ export const SPADES_PAGE_MESSAGES = {
 
 
 export const WINNER_PAGE_MESSAGES = {
-  EMOJIS: '😎❤️',
+  ICON: '😎❤️',
   JA_TITLE: '勝ったね。あなたは私のバレンタインよ.',
   EN_TITLE: 'You win. You are now my Valentine.',
 }
 
 export const LOSER_PAGE_MESSAGES = {
-  EMOJIS: '😵🩸',
+  ICON: '😵🩸',
   JA_TITLE: '死んでしまいました。もう一度やり直しますか？',
   EN_TITLE: 'You died. Try again?',
 }
