@@ -1,4 +1,3 @@
-// ClubsGame.tsx
 import React, { useEffect, useState } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
@@ -6,11 +5,17 @@ import { DraggableCard } from './DraggableCard';
 import { SeeSawSide } from './SeeSawSide';
 import { useAppState } from '../../context/AppStateContext';
 import { SUITS } from '../../constants';
+import middleScaleImg from '../../assets/middle_scale.png'
+import seeSawImg from '../../assets/seesaw.png'
+import plateImg from '../../assets/plate.png'
+import styles from './ClubsGame.module.css'
 
 export function ClubsGame() {
     const { state } = useAppState();
+
+    // Drag and Drop Cards
     const [ownedCards, setOwnedCards] = useState([
-        ...(state.cards.clubs ? [SUITS.CLUBS] : []),
+        ...([SUITS.CLUBS]),
         ...(state.cards.diamonds ? [SUITS.DIAMONDS] : []),
         ...(state.cards.hearts ? [SUITS.HEARTS] : []),
         ...(state.cards.spades ? [SUITS.SPADES] : []),
@@ -35,29 +40,55 @@ export function ClubsGame() {
         }
     };
 
+    // Weight Calculations
+    const cardWeights: Record<string, number> = {
+        [SUITS.CLUBS]: 1,
+        [SUITS.DIAMONDS]: 2,
+        [SUITS.HEARTS]: 3,
+        [SUITS.SPADES]: 4,
+    };
+
+    const leftWeight = leftSideCards.reduce((acc, suit) => acc + (cardWeights[suit] || 0), 0);
+    const rightWeight = rightSideCards.reduce((acc, suit) => acc + (cardWeights[suit] || 0), 0);
+
+    const totalWeight = leftWeight + rightWeight;
+    const balanceRatio = totalWeight === 0 ? 0 : (rightWeight - leftWeight) / totalWeight;
+
+    const maxAngle = 15; // max degrees tilt
+    const angle = maxAngle * balanceRatio; // e.g. -15 to +15 degrees
+
     return (
         <DndProvider backend={HTML5Backend}>
-            <div className="game-area" style={{ display: 'flex', gap: 16 }}>
+            <div className={styles.gameArea}>
                 <SeeSawSide side="left" onDrop={handleDrop}>
-                    {leftSideCards.map((suit, i) => (
+                    {leftSideCards.map((suit) => (
                         <DraggableCard key={suit} suit={suit} />
                     ))}
                 </SeeSawSide>
 
-                <div
-                    style={{
-                        width: '200px',
-                        height: '20px',
-                        backgroundColor: '#654321',
-                        alignSelf: 'center',
-                        borderRadius: '10px',
-                        transform: 'rotate(5deg)',
-                        margin: '0 16px',
-                    }}
-                ></div>
+                <div className={styles.scale}>
+                    <div className={styles.middleScaleImg}>
+                        <img src={middleScaleImg} />
+                    </div>
+                    <div
+                        className={styles.seeSawImg}
+                        style={{
+                            transform: `translate(-40%, 0%) rotate(${angle}deg)`,
+                            transition: 'transform 0.3s ease',
+                        }}
+                    >
+                        <img src={seeSawImg} />
+                    </div>
+                    <div className={styles.plateImgLeft}>
+                        <img src={plateImg} />
+                    </div>
+                    <div className={styles.plateImgRight}>
+                        <img src={plateImg} />
+                    </div>
+                </div>
 
                 <SeeSawSide side="right" onDrop={handleDrop}>
-                    {rightSideCards.map((suit, i) => (
+                    {rightSideCards.map((suit) => (
                         <DraggableCard key={suit} suit={suit} />
                     ))}
                 </SeeSawSide>
@@ -68,7 +99,6 @@ export function ClubsGame() {
                     <DraggableCard key={suit} suit={suit} />
                 ))}
             </SeeSawSide>
-
         </DndProvider>
     );
 }
