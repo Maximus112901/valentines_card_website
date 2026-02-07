@@ -4,7 +4,8 @@ import { decideNextScenario } from '../../application_business_rules/decideNextS
 import { useScenarioRouting } from './hooks/useScenarioRouting';
 
 import { WelcomePage } from './pages/WelcomePage';
-import { ClubsPage } from './pages/ClubsPage';
+import { SuitPage } from './pages/SuitPage';
+import { CLUBS_PAGE } from './constants';
 
 
 export function App() {
@@ -22,7 +23,7 @@ export function App() {
   return (
     <div className="page-container">
       {scenario.toString() === 'WELCOME' && <WelcomePage onEvent={handleEvent} />}
-      {scenario.toString() === 'CLUBS' && <ClubsPage onEvent={handleEvent} />}
+      {scenario.toString() === 'CLUBS' && <SuitPage suit={CLUBS_PAGE} onEvent={handleEvent} />}
     </div>
   );
 }
