@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { useDrop } from 'react-dnd';
 
 interface SeeSawSideProps {
-  side: 'left' | 'right';
-  onDrop: (suit: string, side: 'left' | 'right') => void;
+  side: 'left' | 'right' | 'bottom';
+  onDrop: (suit: string, side: 'left' | 'right' | 'bottom') => void;
   children?: React.ReactNode;
 }
 
@@ -29,20 +29,14 @@ export function SeeSawSide({ side, onDrop, children }: SeeSawSideProps) {
     <div
       ref={ref}
       style={{
-        flex: 1,
-        height: '150px',
-        margin: '8px',
-        border: '2px dashed white',
-        borderRadius: '12px',
-        backgroundColor: isOver ? (canDrop ? 'green' : 'red') : 'transparent',
+        width: '100px',
+        height: '100px',
+        outline: '1px solid red',
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        color: 'white',
-        fontSize: '24px',
+        flexDirection: 'column'
       }}
     >
-      {children || (side === 'left' ? 'Left Side' : 'Right Side')}
+      {children || (side === 'left' ? 'Left Side' : (side === 'right' ? 'Right Side' : 'Bottom'))}
     </div>
   );
 }

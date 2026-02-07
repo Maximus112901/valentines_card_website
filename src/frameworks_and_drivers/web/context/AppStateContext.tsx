@@ -16,12 +16,20 @@ type Action =
   | { suit: 'spades', payload: Boolean }
 
 // Initial state
+// const initialState: AppState = {
+//   cards: {
+//     clubs: false,
+//     diamonds: false,
+//     hearts: false,
+//     spades: false,
+//   },
+// };
 const initialState: AppState = {
   cards: {
-    clubs: false,
-    diamonds: false,
-    hearts: false,
-    spades: false,
+    clubs: true,
+    diamonds: true,
+    hearts: true,
+    spades: true,
   },
 };
 

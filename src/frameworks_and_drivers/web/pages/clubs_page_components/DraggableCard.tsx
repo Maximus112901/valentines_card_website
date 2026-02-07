@@ -25,18 +25,6 @@ export function DraggableCard({ suit }: DraggableCardProps) {
   return (
     <div
       ref={ref}
-      style={{
-        opacity: isDragging ? 0.5 : 1,
-        cursor: 'grab',
-        border: '1px solid white',
-        padding: '8px',
-        margin: '4px',
-        display: 'inline-block',
-        userSelect: 'none',
-        backgroundColor: '#222',
-        color: 'white',
-        borderRadius: '8px',
-      }}
     >
       {suit}
     </div>
