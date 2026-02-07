@@ -1,6 +1,10 @@
 const VALENTINE_EVENTS = [
   'WIN',
   'LOSE',
+  'CLUBS',
+  'DIAMONDS',
+  'HEARTS',
+  'SPADES',
   'GO_BACK',
 ] as const;
 
@@ -20,15 +24,31 @@ export class ValentineEvent {
   }
 
   // Factory methods
-  static accept(): ValentineEvent {
+  static clubs(): ValentineEvent {
+    return new ValentineEvent('CLUBS');
+  }
+
+  static diamonds(): ValentineEvent {
+    return new ValentineEvent('DIAMONDS');
+  }
+
+  static hearts(): ValentineEvent {
+    return new ValentineEvent('HEARTS');
+  }
+
+  static spades(): ValentineEvent {
+    return new ValentineEvent('SPADES');
+  }
+
+  static win(): ValentineEvent {
     return new ValentineEvent('WIN');
   }
 
-  static reject(): ValentineEvent {
+  static lose(): ValentineEvent {
     return new ValentineEvent('LOSE');
   }
 
-  static reset(): ValentineEvent {
+  static goBack(): ValentineEvent {
     return new ValentineEvent('GO_BACK');
   }
 
