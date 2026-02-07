@@ -2,13 +2,21 @@ import { ValentineScenario } from "../../../enterprise_business_rules/value_obje
 
 export const ROUTES = {
   [ValentineScenario.welcome().toString()]: '/',
-  [ValentineScenario.accepted().toString()]: '/yes',
-  [ValentineScenario.rejected().toString()]: '/no',
+  [ValentineScenario.clubs().toString()]: '/clubs',
+  [ValentineScenario.diamonds().toString()]: '/diamonds',
+  [ValentineScenario.hearts().toString()]: '/hearts',
+  [ValentineScenario.spades().toString()]: '/spades',
+  [ValentineScenario.winner().toString()]: '/winner',
+  [ValentineScenario.loser().toString()]: '/loser',
 } as const;
 
 // Reverse mapping: route string -> scenario factory
 export const ROUTE_TO_SCENARIO: Record<string, ValentineScenario> = {
   '/': ValentineScenario.welcome(),
-  '/yes': ValentineScenario.accepted(),
-  '/no': ValentineScenario.rejected(),
+  '/clubs': ValentineScenario.clubs(),
+  '/diamonds': ValentineScenario.diamonds(),
+  '/hearts': ValentineScenario.hearts(),
+  '/spades': ValentineScenario.spades(),
+  '/winner': ValentineScenario.winner(),
+  '/loser': ValentineScenario.loser(),
 };
