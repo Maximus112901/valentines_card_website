@@ -33,7 +33,6 @@ export const DIAMONDS_PAGE = {
   EN_MESSAGE: '',
 }
 
-
 export const HEARTS_PAGE = {
   ICON: SUITS.HEARTS,
   JA_TITLE: '',
@@ -51,15 +50,13 @@ export const SPADES_PAGE = {
   EN_MESSAGE: '',
 }
 
+export const MODAL_MESSAGES = {
+  JA_MESSAGE: 'ゲームクリア',
+  EN_MESSAGE: 'GAME CLEAR',
+}
 
 export const WINNER_PAGE = {
   ICON: '😎❤️',
   JA_TITLE: '勝ったね。あなたは私のバレンタインよ.',
   EN_TITLE: 'You win. You are now my Valentine.',
-}
-
-export const LOSER_PAGE = {
-  ICON: '😵🩸',
-  JA_TITLE: '死んでしまいました。もう一度やり直しますか？',
-  EN_TITLE: 'You died. Try again?',
 }

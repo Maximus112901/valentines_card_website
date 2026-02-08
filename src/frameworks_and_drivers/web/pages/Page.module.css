@@ -15,6 +15,10 @@
     width: 90%;
 }
 
+.headerContainer .icon {
+    font-size: 48px;
+}
+
 .gameContainer {
     outline: 2px solid blue;
     display: flex;

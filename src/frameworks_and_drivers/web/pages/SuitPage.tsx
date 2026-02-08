@@ -1,6 +1,10 @@
+import { useEffect, useState } from 'react';
 import { BUTTON_LABELS } from '../constants';
 import { ValentineEvent } from '../../../application_business_rules/ValentineEvent';
 import styles from './Page.module.css'
+import { GotCardModal } from './GotCardModal';
+import { useAppState } from '../context/AppStateContext';
+
 
 interface SuitConstants {
     ICON: string;      // or the type of SUITS.CLUBS if it's an enum
@@ -17,16 +21,31 @@ interface SuitPageProps {
 }
 
 export function SuitPage({ onEvent, suit, suit_game }: SuitPageProps) {
+    const { state, dispatch } = useAppState();
+
+    const [showModal, setShowModal] = useState(false)
     const SuitGame = suit_game;
+
+    useEffect(() => {
+        if (state.cards) {
+            setShowModal(true)
+        }
+    }, [state.cards])
 
     return (
         <div className={styles.pageContentContainer}>
+            <GotCardModal
+                isOpen={showModal}
+                onClose={() => onEvent(ValentineEvent.goBack())}
+                suit={suit}
+            />
+
             <div className={styles.headerContainer}>
-                <h1>{suit.ICON}</h1>
-                <h2>{suit.JA_TITLE}</h2>
-                <h3>{suit.EN_TITLE}</h3>
-                <p>{suit.JA_MESSAGE}</p>
-                <p>{suit.EN_MESSAGE}</p>
+                <span className={styles.icon}>{suit.ICON}</span>
+                <span>{suit.JA_TITLE}</span>
+                <span>{suit.EN_TITLE}</span>
+                <span>{suit.JA_MESSAGE}</span>
+                <span>{suit.EN_MESSAGE}</span>
             </div>
 
             <div className={styles.gameContainer}>

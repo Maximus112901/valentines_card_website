@@ -1,0 +1,45 @@
+.overlay {
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  max-width: 420px;
+  width: 80%;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.content {
+  text-align: center;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content>* {
+  outline: 1px solid red;
+}
+
+.icon {
+  font-size: 48px;
+}
+
+.actions {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actions button {
+  background-color: black;
+  color: white;
+}

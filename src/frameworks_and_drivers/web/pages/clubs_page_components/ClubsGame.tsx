@@ -12,7 +12,7 @@ import styles from './ClubsGame.module.css'
 import { DragPreview } from './DragPreview';
 
 export function ClubsGame() {
-    const { state } = useAppState();
+    const { state, dispatch } = useAppState();
 
     // Drag and Drop Cards
     const [ownedCards, setOwnedCards] = useState([
@@ -62,6 +62,15 @@ export function ClubsGame() {
     const radians = (angle * Math.PI) / 180;
     const plateDistance = 180; // distance from pivot (px)
     const plateYOffset = Math.sin(radians) * plateDistance;
+
+    // Check if player won
+    useEffect(() => {
+        if (ownedCards.length === 0 && leftWeight === rightWeight) {
+            console.log("you won!")
+            dispatch({ suit: "clubs", payload: true })
+        }
+    }, [leftSideCards, rightSideCards])
+
 
     return (
         <DndProvider options={HTML5toTouch}>
