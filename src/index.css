@@ -59,11 +59,15 @@ button:focus-visible {
 }
 
 /* Unified Styles */
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+
 }
 
 body {
@@ -71,8 +75,7 @@ body {
   font-family: 'Arial', sans-serif;
   background-color: #000000;
   color: #ffffff;
-  overflow: hidden;
-  position: fixed;
+  overflow-y: scroll;
 }
 
 .page-container {
