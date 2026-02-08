@@ -1,10 +1,11 @@
 .pageContentContainer {
-    height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .headerContainer {
@@ -25,9 +26,7 @@
 
 .navigationButtonsContainer {
     outline: 2px solid blue;
-    bottom: 50px;
     width: 90%;
-    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
