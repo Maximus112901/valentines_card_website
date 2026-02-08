@@ -13,7 +13,7 @@ export const SUITS = {
 export const WELCOME_PAGE = {
   ICON: Object.values(SUITS).join(''),
   JA_TITLE: 'ウィンチー・イン・バレンタインズ',
-  EN_TITLE: 'Winchi in Valentines',
+  EN_TITLE: 'Winchi in Valentineland',
   JA_MESSAGE: 'すべてのゲームをクリアしてスーツを手に入れよう。すべてのスーツを手に入れて勝利しよう。',
   EN_MESSAGE: 'Finish all the games to get suits. Get all the suits to win.',
 };
