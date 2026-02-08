@@ -7,6 +7,12 @@
     padding: 20px;
 }
 
+.videoContainer {
+    outline: 1px solid red;
+    width: auto;
+    height: 30vh;
+}
+
 .pinContainer {
     display: flex;
     flex-direction: column;

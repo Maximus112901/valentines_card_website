@@ -2,6 +2,7 @@ import { useAppState } from '../../context/AppStateContext';
 import styles from './HeartsGame.module.css'
 import { BUTTON_LABELS, HEARTS_PAGE } from '../../constants';
 import { useState } from 'react';
+import video from '../../assets/hearts_game_video.mp4'
 
 export function HeartsGame() {
     const { state, dispatch } = useAppState();
@@ -27,6 +28,10 @@ export function HeartsGame() {
         <div className={styles.gameContainer}>
             <div className={styles.videoPlayer}>
                 <span>{HEARTS_PAGE.VIDEO_DESCRIPTION}</span>
+                <br />
+                <video className={styles.videoContainer} autoPlay>
+                    <source src={video} type='video/mp4' />
+                </video>
             </div>
 
             <div className={styles.pinContainer}>
