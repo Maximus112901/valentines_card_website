@@ -84,4 +84,5 @@ export const WINNER_PAGE = {
   ICON: '😎',
   JA_TITLE: '勝ったね。あなたは私のバレンタインよ.',
   EN_TITLE: 'You win. You are now my Valentine.',
+  EN_MESSAGE: 'Present a screenshot of this page to avail of the Valentines date.'
 }
