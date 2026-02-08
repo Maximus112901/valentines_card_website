@@ -6,8 +6,7 @@ export const ROUTES = {
   [ValentineScenario.diamonds().toString()]: '/diamonds',
   [ValentineScenario.hearts().toString()]: '/hearts',
   [ValentineScenario.spades().toString()]: '/spades',
-  [ValentineScenario.winner().toString()]: '/winner',
-  [ValentineScenario.loser().toString()]: '/loser',
+  [ValentineScenario.win().toString()]: '/win',
 } as const;
 
 // Reverse mapping: route string -> scenario factory
@@ -17,6 +16,5 @@ export const ROUTE_TO_SCENARIO: Record<string, ValentineScenario> = {
   '/diamonds': ValentineScenario.diamonds(),
   '/hearts': ValentineScenario.hearts(),
   '/spades': ValentineScenario.spades(),
-  '/winner': ValentineScenario.winner(),
-  '/loser': ValentineScenario.loser(),
+  '/win': ValentineScenario.win(),
 };

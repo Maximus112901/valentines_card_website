@@ -10,6 +10,7 @@ const transitions: Record<ScenarioKey, Partial<Record<EventKey, ScenarioKey>>> =
     DIAMONDS: 'DIAMONDS',
     HEARTS: 'HEARTS',
     SPADES: 'SPADES',
+    WIN: 'WIN',
   },
   CLUBS: {
     GO_BACK: 'WELCOME',

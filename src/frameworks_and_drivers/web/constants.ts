@@ -60,7 +60,7 @@ export const MODAL_MESSAGES = {
 }
 
 export const WINNER_PAGE = {
-  ICON: '😎❤️',
+  ICON: '😎',
   JA_TITLE: '勝ったね。あなたは私のバレンタインよ.',
   EN_TITLE: 'You win. You are now my Valentine.',
 }

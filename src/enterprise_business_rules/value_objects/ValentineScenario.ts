@@ -4,8 +4,7 @@ const VALENTINE_SCENARIOS = [
   'DIAMONDS',
   'HEARTS',
   'SPADES',
-  'WINNER',
-  'LOSER',
+  'WIN',
 ] as const;
 
 export type ValentineScenarioType = typeof VALENTINE_SCENARIOS[number];
@@ -45,12 +44,8 @@ export class ValentineScenario {
     return new ValentineScenario('SPADES');
   }
 
-  static winner(): ValentineScenario {
-    return new ValentineScenario('WINNER');
-  }
-
-  static loser(): ValentineScenario {
-    return new ValentineScenario('LOSER');
+  static win(): ValentineScenario {
+    return new ValentineScenario('WIN');
   }
 
   static fromString(value: string): ValentineScenario {

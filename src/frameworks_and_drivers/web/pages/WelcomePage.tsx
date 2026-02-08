@@ -1,4 +1,4 @@
-import { SUITS, WELCOME_PAGE } from '../constants';
+import { SUITS, WELCOME_PAGE, WINNER_PAGE } from '../constants';
 import { ValentineEvent } from '../../../application_business_rules/ValentineEvent';
 import styles from './Page.module.css'
 import { useAppState } from '../context/AppStateContext';
@@ -25,7 +25,7 @@ export function WelcomePage({ onEvent }: PageProps) {
         {!state.cards["diamonds"] ? <button onClick={() => onEvent(ValentineEvent.diamonds())}>{SUITS.DIAMONDS}</button> : null}
         {!state.cards["hearts"] ? <button onClick={() => onEvent(ValentineEvent.hearts())}>{SUITS.HEARTS}</button> : null}
         {!state.cards["spades"] ? <button onClick={() => onEvent(ValentineEvent.spades())}>{SUITS.SPADES}</button> : null}
-        {/* <button onClick={() => onEvent(ValentineEvent.win())}>{SUITS.SPADES}</button> */}
+        <button className={!state.winner ? '' : styles.disabled} onClick={() => onEvent(ValentineEvent.win())}>{WINNER_PAGE.ICON}</button>
       </div>
     </div>
   );

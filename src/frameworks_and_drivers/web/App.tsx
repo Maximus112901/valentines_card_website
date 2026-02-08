@@ -7,7 +7,7 @@ import { WelcomePage } from './pages/WelcomePage';
 import { SuitPage } from './pages/SuitPage';
 import { CLUBS_PAGE } from './constants';
 import { ClubsGame } from './pages/clubs_page_components/ClubsGame';
-
+import { WinnerPage } from './pages/WinnerPage';
 
 export function App() {
   const [scenario, setScenario] = useScenarioRouting(ValentineScenario.welcome());
@@ -25,6 +25,7 @@ export function App() {
     <div className="page-container">
       {scenario.toString() === 'WELCOME' && <WelcomePage onEvent={handleEvent} />}
       {scenario.toString() === 'CLUBS' && <SuitPage onEvent={handleEvent} suit={CLUBS_PAGE} suit_game={ClubsGame} />}
+      {scenario.toString() === 'WIN' && <WinnerPage />}  
     </div>
   );
 }

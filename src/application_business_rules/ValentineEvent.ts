@@ -44,10 +44,6 @@ export class ValentineEvent {
     return new ValentineEvent('WIN');
   }
 
-  static lose(): ValentineEvent {
-    return new ValentineEvent('LOSE');
-  }
-
   static goBack(): ValentineEvent {
     return new ValentineEvent('GO_BACK');
   }
