@@ -56,13 +56,15 @@ export function ClubsGame() {
 
     const maxAngle = 15; // max degrees tilt
     const angle = maxAngle * balanceRatio; // e.g. -15 to +15 degrees
-    
-    // Move plates based on see saw
 
+    // Move plates based on see saw
+    const radians = (angle * Math.PI) / 180;
+    const plateDistance = 180; // distance from pivot (px)
+    const plateYOffset = Math.sin(radians) * plateDistance;
 
     return (
         <DndProvider backend={HTML5Backend}>
-            <div className={styles.gameArea}>
+            <div className={styles.scaleArea}>
                 <SeeSawSide side="left" onDrop={handleDrop}>
                     {leftSideCards.map((suit) => (
                         <DraggableCard key={suit} suit={suit} />
@@ -84,14 +86,14 @@ export function ClubsGame() {
                     </div>
                     <div className={styles.plateImgLeft}
                         style={{
-                            transform: `translate(-105%)`,
+                            transform: `translate(-105%, ${-plateYOffset}px)`,
                             transition: 'transform 0.3s ease',
                         }}>
                         <img src={plateImg} />
                     </div>
                     <div className={styles.plateImgRight}
                         style={{
-                            transform: `translate(105%)`,
+                            transform: `translate(105%, ${plateYOffset}px)`,
                             transition: 'transform 0.3s ease',
                         }}>
                         <img src={plateImg} />
@@ -105,11 +107,13 @@ export function ClubsGame() {
                 </SeeSawSide>
             </div>
 
-            <SeeSawSide side="bottom" onDrop={handleDrop}>
-                {ownedCards.map((suit) => (
-                    <DraggableCard key={suit} suit={suit} />
-                ))}
-            </SeeSawSide>
+            <div className={styles.ownedCardsArea}>
+                <SeeSawSide side="bottom" onDrop={handleDrop}>
+                    {ownedCards.map((suit) => (
+                        <DraggableCard key={suit} suit={suit} />
+                    ))}
+                </SeeSawSide>
+            </div>
         </DndProvider>
     );
 }

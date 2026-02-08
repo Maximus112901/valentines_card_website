@@ -1,11 +1,9 @@
-.gameArea {
-    outline: 2px solid green;
+.scaleArea {
     display: flex;
     width: 100%;
 }
 
 .scale {
-    outline: 1px solid red;
     position: relative;
     height: 50vh;
     width: 100%;
@@ -18,4 +16,10 @@
 
 .scale>* {
     position: absolute;
+}
+
+.ownedCardsArea {
+    outline: 1px solid green;
+    display: flex;
+    width: 100%;
 }
