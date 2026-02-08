@@ -10,10 +10,11 @@
 }
 
 .headerContainer {
-    outline: 2px solid blue;
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 80%;
+    padding-bottom: 5vh;
+    border-bottom: 1px solid white;
 }
 
 .headerContainer .icon {
@@ -21,20 +22,20 @@
 }
 
 .gameContainer {
-    outline: 2px solid blue;
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 80%;
     align-items: center;
     justify-content: center;
 }
 
 .navigationButtonsContainer {
-    outline: 2px solid blue;
-    width: 90%;
+    width: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 5vh;
+    border-top: 1px solid white;
 }
 
 .disabled {

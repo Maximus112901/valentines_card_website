@@ -27,7 +27,7 @@ export function HeartsGame() {
     return (
         <div className={styles.gameContainer}>
             <div className={styles.videoPlayer}>
-                <span className='message'>{HEARTS_PAGE.VIDEO_DESCRIPTION}</span>
+                <span className='message'>{HEARTS_PAGE.GAME_DESCRIPTION}</span>
                 <br />
                 <video className={styles.videoContainer} autoPlay>
                     <source src={video} type='video/mp4' />

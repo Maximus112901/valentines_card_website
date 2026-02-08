@@ -24,10 +24,6 @@
   align-items: center;
 }
 
-.content>* {
-  outline: 1px solid red;
-}
-
 .icon {
   font-size: 48px;
 }
