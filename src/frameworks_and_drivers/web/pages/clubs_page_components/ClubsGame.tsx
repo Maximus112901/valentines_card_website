@@ -9,6 +9,7 @@ import middleScaleImg from '../../assets/middle_scale.png'
 import seeSawImg from '../../assets/seesaw.png'
 import plateImg from '../../assets/plate.png'
 import styles from './ClubsGame.module.css'
+import { DragPreview } from './DragPreview';
 
 export function ClubsGame() {
     const { state } = useAppState();
@@ -64,6 +65,8 @@ export function ClubsGame() {
 
     return (
         <DndProvider options={HTML5toTouch}>
+            <DragPreview />
+
             <div className={styles.scaleArea}>
                 <div className={styles.scale}>
                     <div className={styles.middleScaleImg}>

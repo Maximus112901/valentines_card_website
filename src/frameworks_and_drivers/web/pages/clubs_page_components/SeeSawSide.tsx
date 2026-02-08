@@ -5,9 +5,10 @@ interface SeeSawSideProps {
   side: 'left' | 'right' | 'bottom';
   onDrop: (suit: string, side: 'left' | 'right' | 'bottom') => void;
   children?: React.ReactNode;
+  divClassName? : string
 }
 
-export function SeeSawSide({ side, onDrop, children }: SeeSawSideProps) {
+export function SeeSawSide({ side, onDrop, children, divClassName }: SeeSawSideProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   const [{ isOver, canDrop }, drop] = useDrop(() => ({
@@ -28,14 +29,7 @@ export function SeeSawSide({ side, onDrop, children }: SeeSawSideProps) {
   return (
     <div
       ref={ref}
-      style={{
-        width: '100px',
-        height: '100px',
-        outline: '1px solid red',
-        display: 'flex',
-        flexDirection: 'column'
-      }}
-    >
+      className={divClassName} >
       {children || (side === 'left' ? 'Left Side' : (side === 'right' ? 'Right Side' : 'Bottom'))}
     </div>
   );

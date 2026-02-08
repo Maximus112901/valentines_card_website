@@ -8,7 +8,7 @@ interface DraggableCardProps {
 export function DraggableCard({ suit }: DraggableCardProps) {
   const ref = useRef<HTMLDivElement>(null);
 
-  const [{ isDragging }, drag] = useDrag(() => ({
+  const [{ isDragging }, drag, preview] = useDrag(() => ({
     type: 'CARD',
     item: { suit },
     collect: (monitor) => ({
@@ -18,9 +18,11 @@ export function DraggableCard({ suit }: DraggableCardProps) {
 
   useEffect(() => {
     if (ref.current) {
-      drag(ref.current);
+      drag(ref.current)
     }
-  }, [drag]);
+
+    preview(null)
+  }, [drag, preview])
 
   return (
     <div
