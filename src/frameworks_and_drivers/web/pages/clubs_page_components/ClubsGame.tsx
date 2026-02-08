@@ -40,7 +40,7 @@ export function ClubsGame() {
         }
     };
 
-    // Weight Calculations
+    // Rotate seesaw
     const cardWeights: Record<string, number> = {
         [SUITS.CLUBS]: 1,
         [SUITS.DIAMONDS]: 2,
@@ -56,6 +56,9 @@ export function ClubsGame() {
 
     const maxAngle = 15; // max degrees tilt
     const angle = maxAngle * balanceRatio; // e.g. -15 to +15 degrees
+    
+    // Move plates based on see saw
+
 
     return (
         <DndProvider backend={HTML5Backend}>
@@ -73,16 +76,24 @@ export function ClubsGame() {
                     <div
                         className={styles.seeSawImg}
                         style={{
-                            transform: `translate(-40%, 0%) rotate(${angle}deg)`,
+                            transform: `translate(0, -250%) rotate(${angle}deg)`,
                             transition: 'transform 0.3s ease',
                         }}
                     >
                         <img src={seeSawImg} />
                     </div>
-                    <div className={styles.plateImgLeft}>
+                    <div className={styles.plateImgLeft}
+                        style={{
+                            transform: `translate(-105%)`,
+                            transition: 'transform 0.3s ease',
+                        }}>
                         <img src={plateImg} />
                     </div>
-                    <div className={styles.plateImgRight}>
+                    <div className={styles.plateImgRight}
+                        style={{
+                            transform: `translate(105%)`,
+                            transition: 'transform 0.3s ease',
+                        }}>
                         <img src={plateImg} />
                     </div>
                 </div>

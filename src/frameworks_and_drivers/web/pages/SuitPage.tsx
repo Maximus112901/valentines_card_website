@@ -33,7 +33,9 @@ export function SuitPage({ onEvent, suit, suit_game }: SuitPageProps) {
                 <SuitGame />
             </div>
 
-            <button onClick={() => onEvent(ValentineEvent.goBack())}>{BUTTON_LABELS.GO_BACK}</button>
+            <div className={styles.navigationButtonsContainer}>
+                <button onClick={() => onEvent(ValentineEvent.goBack())}>{BUTTON_LABELS.GO_BACK}</button>
+            </div>
         </div>
     );
 }

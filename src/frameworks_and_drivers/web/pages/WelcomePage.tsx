@@ -16,10 +16,13 @@ export function WelcomePage({ onEvent }: PageProps) {
         <p>{WELCOME_PAGE.JA_MESSAGE}</p>
         <p>{WELCOME_PAGE.EN_MESSAGE}</p>
       </div>
-      <button onClick={() => onEvent(ValentineEvent.clubs())}>{SUITS.CLUBS}</button>
-      <button onClick={() => onEvent(ValentineEvent.diamonds())}>{SUITS.DIAMONDS}</button>
-      <button onClick={() => onEvent(ValentineEvent.hearts())}>{SUITS.HEARTS}</button>
-      <button onClick={() => onEvent(ValentineEvent.spades())}>{SUITS.SPADES}</button>
+
+      <div className={styles.navigationButtonsContainer}>
+        <button onClick={() => onEvent(ValentineEvent.clubs())}>{SUITS.CLUBS}</button>
+        <button onClick={() => onEvent(ValentineEvent.diamonds())}>{SUITS.DIAMONDS}</button>
+        <button onClick={() => onEvent(ValentineEvent.hearts())}>{SUITS.HEARTS}</button>
+        <button onClick={() => onEvent(ValentineEvent.spades())}>{SUITS.SPADES}</button>
+      </div>
     </div>
   );
 }
