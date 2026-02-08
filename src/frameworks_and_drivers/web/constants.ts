@@ -25,6 +25,7 @@ export const CLUBS_PAGE = {
   EN_TITLE: 'BALANCE GAME',
   JA_MESSAGE: 'バランスこそがすべての鍵です。',
   EN_MESSAGE: 'Balance is the key to everything.',
+  GAME_DESCRIPTION: 'Balance the cards on the scale.'
 }
 
 export const DIAMONDS_PAGE = {

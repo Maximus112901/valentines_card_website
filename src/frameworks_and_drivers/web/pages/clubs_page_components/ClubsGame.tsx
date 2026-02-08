@@ -4,7 +4,7 @@ import { HTML5toTouch } from 'rdndmb-html5-to-touch'
 import { DraggableCard } from './DraggableCard';
 import { SeeSawSide } from './SeeSawSide';
 import { useAppState } from '../../context/AppStateContext';
-import { SUITS } from '../../constants';
+import { CLUBS_PAGE, SUITS } from '../../constants';
 import middleScaleImg from '../../assets/middle_scale.png'
 import seeSawImg from '../../assets/seesaw.png'
 import plateImg from '../../assets/plate.png'
@@ -76,6 +76,8 @@ export function ClubsGame() {
             <DragPreview
                 renderItem={(item) => <DraggableCard suit={item.suit} divClassName={styles.draggableCard} />}
             />
+            <span className='message'>{CLUBS_PAGE.GAME_DESCRIPTION}</span>
+
             <div className={styles.scaleArea}>
                 <div className={styles.scale}>
                     <div className={styles.middleScaleImg}>
