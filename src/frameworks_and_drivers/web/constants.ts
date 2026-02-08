@@ -67,10 +67,11 @@ export const HEARTS_PAGE = {
 export const SPADES_PAGE = {
   SUIT_NAME: 'spades',
   ICON: SUITS.SPADES,
-  JA_TITLE: 'タグ',
-  EN_TITLE: 'TAG',
-  JA_MESSAGE: '',
-  EN_MESSAGE: '',
+  JA_TITLE: 'ナンバータグ',
+  EN_TITLE: 'NUMBER TAG',
+  JA_MESSAGE: '速いのは良いことですが、正確さがすべてです。',
+  EN_MESSAGE: 'Fast is fine, but accuracy is everything.',
+  GAME_DESCRIPTION: 'Tap the numbers in ascending order. If you press the wrong number, the board resets.',
 }
 
 export const MODAL_MESSAGES = {

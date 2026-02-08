@@ -5,11 +5,12 @@ import { useScenarioRouting } from './hooks/useScenarioRouting';
 
 import { WelcomePage } from './pages/WelcomePage';
 import { SuitPage } from './pages/SuitPage';
-import { CLUBS_PAGE, DIAMONDS_PAGE, HEARTS_PAGE } from './constants';
+import { CLUBS_PAGE, DIAMONDS_PAGE, HEARTS_PAGE, SPADES_PAGE } from './constants';
 import { ClubsGame } from './pages/clubs_page_components/ClubsGame';
 import { WinnerPage } from './pages/WinnerPage';
 import { DiamondsGame } from './pages/diamonds_page_components/DiamondsGame';
 import { HeartsGame } from './pages/hearts_page_components/HeartsGame';
+import { SpadesGame } from './pages/spades_page_components/SpadesGame';
 
 export function App() {
   const [scenario, setScenario] = useScenarioRouting(ValentineScenario.welcome());
@@ -29,6 +30,7 @@ export function App() {
       {scenario.toString() === 'CLUBS' && <SuitPage onEvent={handleEvent} suit={CLUBS_PAGE} suit_game={ClubsGame} />}
       {scenario.toString() === 'DIAMONDS' && <SuitPage onEvent={handleEvent} suit={DIAMONDS_PAGE} suit_game={DiamondsGame} />}
       {scenario.toString() === 'HEARTS' && <SuitPage onEvent={handleEvent} suit={HEARTS_PAGE} suit_game={HeartsGame} />}
+      {scenario.toString() === 'SPADES' && <SuitPage onEvent={handleEvent} suit={SPADES_PAGE} suit_game={SpadesGame} />}
       {scenario.toString() === 'WIN' && <WinnerPage />}
     </div>
   );

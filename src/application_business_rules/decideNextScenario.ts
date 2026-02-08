@@ -21,6 +21,9 @@ const transitions: Record<ScenarioKey, Partial<Record<EventKey, ScenarioKey>>> =
   HEARTS: {
     GO_BACK: 'WELCOME',
   },
+  SPADES: {
+    GO_BACK: 'WELCOME',
+  },
 };
 
 export function decideNextScenario(
