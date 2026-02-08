@@ -29,12 +29,19 @@ const initialState: AppState = {
 
 // Reducer to handle state changes
 function appStateReducer(state: AppState, action: Action): AppState {
-  return {
+  // check if player won
+  let updatedState = {
     ...state,
     cards: {
       ...state.cards,
       [action.suit]: action.payload,
     },
+  };
+  const allCardsObtained = Object.values(updatedState.cards).every(value => value === true); 
+
+  return {
+    ...updatedState,
+    winner: allCardsObtained,
   };
 }
 
