@@ -1,5 +1,6 @@
 .pageContentContainer {
     height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,5 +11,24 @@
     outline: 2px solid blue;
     display: flex;
     flex-direction: column;
-    margin-top: 0;
+    width: 90%;
+}
+
+.gameContainer {
+    outline: 2px solid blue;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+}
+
+.navigationButtonsContainer {
+    outline: 2px solid blue;
+    bottom: 50px;
+    width: 90%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
