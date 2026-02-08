@@ -5,7 +5,7 @@ import { useState } from 'react';
 import video from '../../assets/hearts_game_video.mp4'
 
 export function HeartsGame() {
-    const { state, dispatch } = useAppState();
+    const { dispatch } = useAppState();
 
     // Text Input
     const [pin, setPin] = useState("")

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDrag } from 'react-dnd';
 
 interface DraggableCardProps {
@@ -9,7 +9,7 @@ interface DraggableCardProps {
 export function DraggableCard({ suit, divClassName }: DraggableCardProps) {
   const ref = useRef<HTMLDivElement>(null);
 
-  const [{ isDragging }, drag, preview] = useDrag(() => ({
+  const [{ }, drag, preview] = useDrag(() => ({
     type: 'CARD',
     item: { suit },
     collect: (monitor) => ({

@@ -5,13 +5,13 @@ interface SeeSawSideProps {
   side: 'left' | 'right' | 'bottom';
   onDrop: (suit: string, side: 'left' | 'right' | 'bottom') => void;
   children?: React.ReactNode;
-  divClassName? : string
+  divClassName?: string
 }
 
 export function SeeSawSide({ side, onDrop, children, divClassName }: SeeSawSideProps) {
   const ref = useRef<HTMLDivElement>(null);
 
-  const [{ isOver, canDrop }, drop] = useDrop(() => ({
+  const [{ }, drop] = useDrop(() => ({
     accept: 'CARD',
     drop: (item: { suit: string }) => onDrop(item.suit, side),
     collect: (monitor) => ({

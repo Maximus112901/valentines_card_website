@@ -1,4 +1,3 @@
-import React from 'react'
 import Modal from 'react-modal'
 import { BUTTON_LABELS, MODAL_MESSAGES } from '../constants'
 import styles from './GotCardModal.module.css'

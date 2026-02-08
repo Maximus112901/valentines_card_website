@@ -6,7 +6,7 @@ import { useState } from 'react';
 type AnswerKey = Extract<keyof typeof DIAMONDS_PAGE, `ANSWER_${number}`>;
 
 export function DiamondsGame() {
-    const { state, dispatch } = useAppState();
+    const { dispatch } = useAppState();
 
     // Text Input
     const answers = {

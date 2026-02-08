@@ -3,7 +3,7 @@ import { WINNER_PAGE } from '../constants';
 import styles from './Page.module.css'
 
 export function WinnerPage() {
-  const [now, setNow] = useState(new Date());
+  const [now] = useState(new Date());
 
   return (
     <div className={styles.pageContentContainer}>

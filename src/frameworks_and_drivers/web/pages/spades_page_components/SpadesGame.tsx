@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import styles from './SpadesGame.module.css'
-import { BUTTON_LABELS, SPADES_PAGE } from '../../constants';
+import { SPADES_PAGE } from '../../constants';
 import { useAppState } from '../../context/AppStateContext';
 
 function generateUniqueRandomNumbers(count: number, min: number, max: number) {

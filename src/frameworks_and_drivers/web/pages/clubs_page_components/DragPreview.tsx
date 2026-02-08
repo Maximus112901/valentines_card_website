@@ -1,5 +1,4 @@
 import { useDragLayer } from 'react-dnd'
-import { DraggableCard } from './DraggableCard'
 
 interface DragPreviewProps {
   renderItem: (item: any) => React.ReactNode

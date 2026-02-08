@@ -22,7 +22,7 @@ interface SuitPageProps {
 }
 
 export function SuitPage({ onEvent, suit, suit_game }: SuitPageProps) {
-    const { state, dispatch } = useAppState();
+    const { state } = useAppState();
 
     const [showModal, setShowModal] = useState(false)
     const SuitGame = suit_game;
