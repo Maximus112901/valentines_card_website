@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
+import { DndProvider } from 'react-dnd-multi-backend'
+import { HTML5toTouch } from 'rdndmb-html5-to-touch'
 import { DraggableCard } from './DraggableCard';
 import { SeeSawSide } from './SeeSawSide';
 import { useAppState } from '../../context/AppStateContext';
@@ -26,17 +26,17 @@ export function ClubsGame() {
 
     const handleDrop = (suit: string, side: 'left' | 'right' | 'bottom') => {
         if (side === 'left') {
-            setLeftSideCards((prev) => [...prev, suit]);
+            setLeftSideCards((prev) =>  prev.includes(suit) ? prev : [...prev, suit]);
             setRightSideCards((prev) => prev.filter(item => item !== suit))
             setOwnedCards((prev) => prev.filter(item => item !== suit))
         } else if (side === 'right') {
             setLeftSideCards((prev) => prev.filter(item => item !== suit));
-            setRightSideCards((prev) => [...prev, suit])
+            setRightSideCards((prev) => prev.includes(suit) ? prev : [...prev, suit])
             setOwnedCards((prev) => prev.filter(item => item !== suit))
         } else if (side === 'bottom') {
             setLeftSideCards((prev) => prev.filter(item => item !== suit));
             setRightSideCards((prev) => prev.filter(item => item !== suit))
-            setOwnedCards((prev) => [...prev, suit])
+            setOwnedCards((prev) => prev.includes(suit) ? prev : [...prev, suit])
         }
     };
 
@@ -63,14 +63,8 @@ export function ClubsGame() {
     const plateYOffset = Math.sin(radians) * plateDistance;
 
     return (
-        <DndProvider backend={HTML5Backend}>
+        <DndProvider options={HTML5toTouch}>
             <div className={styles.scaleArea}>
-                <SeeSawSide side="left" onDrop={handleDrop}>
-                    {leftSideCards.map((suit) => (
-                        <DraggableCard key={suit} suit={suit} />
-                    ))}
-                </SeeSawSide>
-
                 <div className={styles.scale}>
                     <div className={styles.middleScaleImg}>
                         <img src={middleScaleImg} />
@@ -89,6 +83,11 @@ export function ClubsGame() {
                             transform: `translate(-105%, ${-plateYOffset}px)`,
                             transition: 'transform 0.3s ease',
                         }}>
+                        <SeeSawSide side="left" onDrop={handleDrop} divClassName={styles.droppedCardsArea}>
+                            {leftSideCards.map((suit) => (
+                                <DraggableCard key={suit} suit={suit} />
+                            ))}
+                        </SeeSawSide>
                         <img src={plateImg} />
                     </div>
                     <div className={styles.plateImgRight}
@@ -96,24 +95,22 @@ export function ClubsGame() {
                             transform: `translate(105%, ${plateYOffset}px)`,
                             transition: 'transform 0.3s ease',
                         }}>
+                        <SeeSawSide side="right" onDrop={handleDrop} divClassName={styles.droppedCardsArea}>
+                            {rightSideCards.map((suit) => (
+                                <DraggableCard key={suit} suit={suit} />
+                            ))}
+                        </SeeSawSide>
                         <img src={plateImg} />
                     </div>
                 </div>
-
-                <SeeSawSide side="right" onDrop={handleDrop}>
-                    {rightSideCards.map((suit) => (
-                        <DraggableCard key={suit} suit={suit} />
-                    ))}
-                </SeeSawSide>
             </div>
 
-            <div className={styles.ownedCardsArea}>
-                <SeeSawSide side="bottom" onDrop={handleDrop}>
-                    {ownedCards.map((suit) => (
-                        <DraggableCard key={suit} suit={suit} />
-                    ))}
-                </SeeSawSide>
-            </div>
+            <SeeSawSide side="bottom" onDrop={handleDrop} divClassName={styles.ownedCardsArea}>
+                {ownedCards.map((suit) => (
+                    <DraggableCard key={suit} suit={suit} />
+                ))}
+            </SeeSawSide>
+
         </DndProvider>
     );
 }
