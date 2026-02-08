@@ -4,10 +4,11 @@ import { ValentineEvent } from '../../../application_business_rules/ValentineEve
 import styles from './Page.module.css'
 import { GotCardModal } from './GotCardModal';
 import { useAppState } from '../context/AppStateContext';
-
+import type { Suit } from '../context/AppStateContext';
 
 interface SuitConstants {
-    ICON: string;      // or the type of SUITS.CLUBS if it's an enum
+    SUIT_NAME: string,
+    ICON: string;    
     JA_TITLE: string;
     EN_TITLE: string;
     JA_MESSAGE: string;
@@ -27,7 +28,7 @@ export function SuitPage({ onEvent, suit, suit_game }: SuitPageProps) {
     const SuitGame = suit_game;
 
     useEffect(() => {
-        if (state.cards) {
+        if (state.cards[suit.SUIT_NAME as Suit]) {
             setShowModal(true)
         }
     }, [state.cards])

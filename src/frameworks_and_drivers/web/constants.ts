@@ -18,6 +18,7 @@ export const WELCOME_PAGE = {
 };
 
 export const CLUBS_PAGE = {
+  SUIT_NAME: 'clubs',
   ICON: SUITS.CLUBS,
   JA_TITLE: 'バランスゲーム',
   EN_TITLE: 'BALANCE GAME',
@@ -26,6 +27,7 @@ export const CLUBS_PAGE = {
 }
 
 export const DIAMONDS_PAGE = {
+  SUIT_NAME: 'diamonds',
   ICON: SUITS.DIAMONDS,
   JA_TITLE: '',
   EN_TITLE: '',
@@ -34,6 +36,7 @@ export const DIAMONDS_PAGE = {
 }
 
 export const HEARTS_PAGE = {
+  SUIT_NAME: 'hearts',
   ICON: SUITS.HEARTS,
   JA_TITLE: '',
   EN_TITLE: '',
@@ -43,6 +46,7 @@ export const HEARTS_PAGE = {
 
 
 export const SPADES_PAGE = {
+  SUIT_NAME: 'spades',
   ICON: SUITS.SPADES,
   JA_TITLE: 'タグ',
   EN_TITLE: 'TAG',

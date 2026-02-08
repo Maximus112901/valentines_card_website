@@ -2,7 +2,7 @@ import React, { createContext, useContext, useReducer } from 'react';
 import type { ReactNode } from 'react';
 
 // Define the shape of your app state
-type Suit = 'clubs' | 'diamonds' | 'hearts' | 'spades';
+export type Suit = 'clubs' | 'diamonds' | 'hearts' | 'spades';
 
 interface AppState {
   cards: Record<Suit, boolean>;
@@ -26,7 +26,7 @@ type Action =
 // };
 const initialState: AppState = {
   cards: {
-    clubs: true,
+    clubs: false,
     diamonds: true,
     hearts: true,
     spades: true,
