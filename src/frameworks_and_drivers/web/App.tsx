@@ -5,7 +5,7 @@ import { useScenarioRouting } from './hooks/useScenarioRouting';
 
 import { WelcomePage } from './pages/WelcomePage';
 import { SuitPage } from './pages/SuitPage';
-import { CLUBS_PAGE, DIAMONDS_PAGE } from './constants';
+import { CLUBS_PAGE, DIAMONDS_PAGE, HEARTS_PAGE } from './constants';
 import { ClubsGame } from './pages/clubs_page_components/ClubsGame';
 import { WinnerPage } from './pages/WinnerPage';
 import { DiamondsGame } from './pages/diamonds_page_components/DiamondsGame';
@@ -27,6 +27,7 @@ export function App() {
       {scenario.toString() === 'WELCOME' && <WelcomePage onEvent={handleEvent} />}
       {scenario.toString() === 'CLUBS' && <SuitPage onEvent={handleEvent} suit={CLUBS_PAGE} suit_game={ClubsGame} />}
       {scenario.toString() === 'DIAMONDS' && <SuitPage onEvent={handleEvent} suit={DIAMONDS_PAGE} suit_game={DiamondsGame} />}
+      {scenario.toString() === 'HEARTS' && <SuitPage onEvent={handleEvent} suit={HEARTS_PAGE} suit_game={DiamondsGame} />}
       {scenario.toString() === 'WIN' && <WinnerPage />}
     </div>
   );

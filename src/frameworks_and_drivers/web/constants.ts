@@ -54,10 +54,10 @@ After a few more minutes of driving, the bus continues down the road, passing se
 export const HEARTS_PAGE = {
   SUIT_NAME: 'hearts',
   ICON: SUITS.HEARTS,
-  JA_TITLE: '',
-  EN_TITLE: '',
-  JA_MESSAGE: '',
-  EN_MESSAGE: '',
+  JA_TITLE: '私を信じてください',
+  EN_TITLE: 'PLEASE TRUST ME',
+  JA_MESSAGE: '誰かを信頼できるかどうかを知る最良の方法は、その人を信頼することです。',
+  EN_MESSAGE: 'The best way to find out if you can trust somebody is to trust them.',
 }
 
 
