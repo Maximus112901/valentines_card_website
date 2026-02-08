@@ -6,6 +6,7 @@ export type Suit = 'clubs' | 'diamonds' | 'hearts' | 'spades';
 
 interface AppState {
   cards: Record<Suit, boolean>;
+  winner: Boolean;
 }
 
 // Define the actions your state can handle
@@ -16,21 +17,14 @@ type Action =
   | { suit: 'spades', payload: Boolean }
 
 // Initial state
-// const initialState: AppState = {
-//   cards: {
-//     clubs: false,
-//     diamonds: false,
-//     hearts: false,
-//     spades: false,
-//   },
-// };
 const initialState: AppState = {
   cards: {
     clubs: false,
-    diamonds: true,
-    hearts: true,
-    spades: true,
+    diamonds: false,
+    hearts: false,
+    spades: false,
   },
+  winner: false,
 };
 
 // Reducer to handle state changes
