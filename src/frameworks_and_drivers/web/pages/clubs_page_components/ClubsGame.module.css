@@ -26,18 +26,31 @@
 .droppedCardsArea {
     outline: 1px solid green;
     position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 100%;
     height: 80%;
-    bottom: 20%
+    bottom: 20%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 .ownedCardsArea {
     outline: 1px solid green;
+    height: 120px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 20px;
+}
+
+.draggableCard {
+    background: white;
+    border-radius: 20px;
+    height: 120px;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
 }
