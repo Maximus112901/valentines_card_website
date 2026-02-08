@@ -49,13 +49,13 @@ export function DiamondsGame() {
     return (
         <div className={styles.gameContainer}>
             <div className={styles.riddleContainer}>
-                <span>{DIAMONDS_PAGE.RIDDLE}</span>
+                <span className='message'>{DIAMONDS_PAGE.RIDDLE}</span>
             </div>
 
             <div className={styles.questionsContainer}>
                 <div className={styles.questionAnswerPair}>
                     <label>
-                        {DIAMONDS_PAGE.QUESTION_1}:
+                        <span className='message'>{DIAMONDS_PAGE.QUESTION_1}:</span>
                         <br />
                         <input
                             name="ANSWER_1"
@@ -66,7 +66,7 @@ export function DiamondsGame() {
                 </div>
                 <div className={styles.questionAnswerPair}>
                     <label>
-                        {DIAMONDS_PAGE.QUESTION_2}:
+                        <span className='message'>{DIAMONDS_PAGE.QUESTION_2}:</span>
                         <br />
                         <input
                             name="ANSWER_2"
@@ -77,7 +77,7 @@ export function DiamondsGame() {
                 </div>
                 <div className={styles.questionAnswerPair}>
                     <label>
-                        {DIAMONDS_PAGE.QUESTION_3}:
+                        <span className='message'>{DIAMONDS_PAGE.QUESTION_3}:</span>
                         <br />
                         <input
                             name="ANSWER_3"

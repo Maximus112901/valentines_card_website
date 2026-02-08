@@ -14,10 +14,10 @@ export function WelcomePage({ onEvent }: PageProps) {
     <div className={styles.pageContentContainer}>
       <div className={styles.headerContainer}>
         <h1>{state.cards.clubs ? SUITS.CLUBS : '?'}{state.cards.diamonds ? SUITS.DIAMONDS : '?'}{state.cards.hearts ? SUITS.HEARTS : '?'}{state.cards.spades ? SUITS.SPADES : '?'}</h1>
-        <span>{WELCOME_PAGE.JA_TITLE}</span>
-        <span>{WELCOME_PAGE.EN_TITLE}</span>
-        <span>{WELCOME_PAGE.JA_MESSAGE}</span>
-        <span>{WELCOME_PAGE.EN_MESSAGE}</span>
+        <span className='title'>{WELCOME_PAGE.JA_TITLE}</span>
+        <span className='title'>{WELCOME_PAGE.EN_TITLE}</span>
+        <span className='message'>{WELCOME_PAGE.JA_MESSAGE}</span>
+        <span className='message'>{WELCOME_PAGE.EN_MESSAGE}</span>
       </div>
 
       <div className={styles.navigationButtonsContainer}>

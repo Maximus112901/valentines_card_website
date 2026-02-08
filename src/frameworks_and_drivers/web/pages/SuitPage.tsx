@@ -8,7 +8,7 @@ import type { Suit } from '../context/AppStateContext';
 
 interface SuitConstants {
     SUIT_NAME: string,
-    ICON: string;    
+    ICON: string;
     JA_TITLE: string;
     EN_TITLE: string;
     JA_MESSAGE: string;
@@ -43,10 +43,10 @@ export function SuitPage({ onEvent, suit, suit_game }: SuitPageProps) {
 
             <div className={styles.headerContainer}>
                 <span className={styles.icon}>{suit.ICON}</span>
-                <span>{suit.JA_TITLE}</span>
-                <span>{suit.EN_TITLE}</span>
-                <span>{suit.JA_MESSAGE}</span>
-                <span>{suit.EN_MESSAGE}</span>
+                <span className='title'>{suit.JA_TITLE}</span>
+                <span className='title'>{suit.EN_TITLE}</span>
+                <span className='message'>{suit.JA_MESSAGE}</span>
+                <span className='message'>{suit.EN_MESSAGE}</span>
             </div>
 
             <div className={styles.gameContainer}>

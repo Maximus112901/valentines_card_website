@@ -10,6 +10,7 @@
 .gridItem {
     width: 80px;
     height: 80px;
+    font-size: 36px;
     background-color: white;
     color: black;
     display: flex;
@@ -20,13 +21,10 @@
 .pressedGridItem {
     width: 80px;
     height: 80px;
+    font-size: 36px;
     background-color: green;
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.largeText {
-    font-size: 36px;
 }

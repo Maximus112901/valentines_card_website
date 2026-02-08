@@ -27,7 +27,7 @@ export function HeartsGame() {
     return (
         <div className={styles.gameContainer}>
             <div className={styles.videoPlayer}>
-                <span>{HEARTS_PAGE.VIDEO_DESCRIPTION}</span>
+                <span className='message'>{HEARTS_PAGE.VIDEO_DESCRIPTION}</span>
                 <br />
                 <video className={styles.videoContainer} autoPlay>
                     <source src={video} type='video/mp4' />
@@ -36,7 +36,7 @@ export function HeartsGame() {
 
             <div className={styles.pinContainer}>
                 <label>
-                    <span>{HEARTS_PAGE.PIN_MESSAGE}</span>
+                    <span className='message'>{HEARTS_PAGE.PIN_MESSAGE}</span>
                     <br />
                     <input
                         name="PIN"

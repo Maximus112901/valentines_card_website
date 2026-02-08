@@ -101,10 +101,11 @@ export function SpadesGame() {
 
     return (
         <div className={styles.gameContainer}>
+            <span className='message'>{SPADES_PAGE.GAME_DESCRIPTION}</span>
             <div className={styles.timer}>
-                <span className={styles.largeText}>Level: {level}/{gridSizes.length}</span>
+                <span className='title'>Level: {level}/{gridSizes.length}</span>
                 <br />
-                <span className={styles.largeText}>Time: {time}s</span>
+                <span className='title'>Time: {time}s</span>
             </div>
             <div
                 style={{
