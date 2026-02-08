@@ -25,7 +25,7 @@ export function WelcomePage({ onEvent }: PageProps) {
         {!state.cards["diamonds"] ? <button onClick={() => onEvent(ValentineEvent.diamonds())}>{SUITS.DIAMONDS}</button> : null}
         {!state.cards["hearts"] ? <button onClick={() => onEvent(ValentineEvent.hearts())}>{SUITS.HEARTS}</button> : null}
         {!state.cards["spades"] ? <button onClick={() => onEvent(ValentineEvent.spades())}>{SUITS.SPADES}</button> : null}
-        <button className={!state.winner ? '' : styles.disabled} onClick={() => onEvent(ValentineEvent.win())}>{WINNER_PAGE.ICON}</button>
+        <button className={state.winner ? '' : styles.disabled} onClick={() => onEvent(ValentineEvent.win())}>{WINNER_PAGE.ICON}</button>
       </div>
     </div>
   );
