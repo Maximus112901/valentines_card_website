@@ -4,7 +4,7 @@ import { BUTTON_LABELS, SPADES_PAGE } from '../../constants';
 import { useAppState } from '../../context/AppStateContext';
 
 function generateUniqueRandomNumbers(count: number, min: number, max: number) {
-    const numbers = new Set();
+    const numbers = new Set<number>();
 
     while (numbers.size < count) {
         const rand = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -20,25 +20,35 @@ export function SpadesGame() {
     // Keep track of level and randomly generate numbers
     const gridSizes = [2, 3, 4]
     const [level, setLevel] = useState(1);
-    const [maxNumber, setMaxNumber] = useState(gridSizes[level - 1] ** 2);
+    const [maxNumber, setMaxNumber] = useState(gridSizes[0] ** 2);
     const [numbers, setNumbers] = useState(generateUniqueRandomNumbers(maxNumber, 1, maxNumber))
 
-    useEffect(() => {
-        // if not yet last level
-        if (level <= gridSizes.length) {
-            const newMax = gridSizes[level - 1] ** 2;
-            setMaxNumber(newMax);
-            setNumbers(generateUniqueRandomNumbers(newMax, 1, newMax));
+    // Timer
+    const [time, setTime] = useState(gridSizes[0] ** 2);
+    const [isRunning, setIsRunning] = useState(false);
 
-            // reset board
-            setExpectedNumber(1);
-            setPressedNumbers([]);
-        }
-        // if player cleared previous level, they won
-        else {
-            dispatch({ suit: "spades", payload: true })
-        }
-    }, [level]);
+    useEffect(() => {
+        if (!isRunning) return;
+
+        const interval = setInterval(() => {
+            setTime(prev => {
+                if (prev <= 1) {
+                    clearInterval(interval);
+
+                    // Fail level when timer reaches 0
+                    setIsRunning(false);
+                    setLevel(0);
+                    setExpectedNumber(1);
+                    setPressedNumbers([]);
+
+                    return 0;
+                }
+                return prev - 1;
+            });
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, [isRunning]);
 
     // Keep pressed and next numbers
     const [expectedNumber, setExpectedNumber] = useState(1);
@@ -54,7 +64,7 @@ export function SpadesGame() {
             if (num === maxNumber) {
                 setLevel(prev => prev + 1)
             }
-        // if wrong
+            // if wrong
         } else {
             setLevel(1);
             setPressedNumbers([]);
@@ -62,10 +72,39 @@ export function SpadesGame() {
         }
     };
 
+    // Update board state
+    useEffect(() => {
+        // add handler for player failing at level 1
+        if (level === 0){
+            setLevel(1);
+            return;
+        }
+
+        if (level <= gridSizes.length) {
+            const newMax = gridSizes[level - 1] ** 2;
+            setMaxNumber(newMax);
+            setNumbers(generateUniqueRandomNumbers(newMax, 1, newMax));
+
+            // reset board
+            setExpectedNumber(1);
+            setPressedNumbers([]);
+
+            // reset & start timer
+            setTime(newMax);
+            setIsRunning(true);
+
+        } else {
+            setIsRunning(false);
+            dispatch({ suit: "spades", payload: true });
+        }
+    }, [level]);
 
     return (
         <div className={styles.gameContainer}>
             <div className={styles.timer}>
+                <span className={styles.largeText}>Level: {level}/{gridSizes.length}</span>
+                <br />
+                <span className={styles.largeText}>Time: {time}s</span>
             </div>
             <div
                 style={{
