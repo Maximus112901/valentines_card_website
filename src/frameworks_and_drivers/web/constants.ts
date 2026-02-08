@@ -58,7 +58,7 @@ export const HEARTS_PAGE = {
   EN_TITLE: 'PLEASE TRUST ME',
   JA_MESSAGE: '誰かを信頼できるかどうかを知る最良の方法は、その人を信頼することです。',
   EN_MESSAGE: 'The best way to find out if you can trust somebody is to trust them.',
-  VIDEO_DESCRIPTION: 'Four digits are scattered throughout the video. Input them in the order they appear. You have unlimited attempts.',
+  VIDEO_DESCRIPTION: 'Four digits are scattered throughout the video. Input them in the order they appear.',
   PIN_MESSAGE: 'Enter the 4-digit PIN',
   PIN: '8700',
 }
