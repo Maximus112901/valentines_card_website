@@ -6,15 +6,17 @@ export function SpadesGame() {
     const gridSizes = [2, 3, 4]
     const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-    // Keep track of next number that should be pressed
+    // Keep pressed and next numbers
     const [expectedNumber, setExpectedNumber] = useState(1);
+    const [pressedNumbers, setPressedNumbers] = useState<number[]>([]);
 
     const handleTileClick = (num: number) => {
         if (num === expectedNumber) {
-            console.log(`Correct! You tapped ${num}`);
             setExpectedNumber(expectedNumber + 1);
+            setPressedNumbers([...pressedNumbers, num]);
         } else {
-            console.log(`Wrong! You tapped ${num}, expected ${expectedNumber}`);
+            setPressedNumbers([]);
+            setExpectedNumber(1);
         }
     };
 
@@ -32,7 +34,7 @@ export function SpadesGame() {
                     <div
                         key={num}
                         onClick={() =>handleTileClick(num)}
-                        className={styles.gridItem}
+                        className={pressedNumbers.includes(num) ? styles.pressedGridItem : styles.gridItem}
                     >
                         {num}
                     </div>
