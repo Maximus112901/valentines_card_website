@@ -3,9 +3,10 @@ import { useDrag } from 'react-dnd';
 
 interface DraggableCardProps {
   suit: string;
+  divClassName: string;
 }
 
-export function DraggableCard({ suit }: DraggableCardProps) {
+export function DraggableCard({ suit, divClassName }: DraggableCardProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   const [{ isDragging }, drag, preview] = useDrag(() => ({
@@ -27,6 +28,7 @@ export function DraggableCard({ suit }: DraggableCardProps) {
   return (
     <div
       ref={ref}
+      className={divClassName}
     >
       {suit}
     </div>

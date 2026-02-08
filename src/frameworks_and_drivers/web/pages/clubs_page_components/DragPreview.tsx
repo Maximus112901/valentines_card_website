@@ -1,7 +1,11 @@
 import { useDragLayer } from 'react-dnd'
 import { DraggableCard } from './DraggableCard'
 
-export function DragPreview() {
+interface DragPreviewProps {
+  renderItem: (item: any) => React.ReactNode
+}
+
+export function DragPreview({ renderItem }: DragPreviewProps) {
   const { isDragging, item, offset } = useDragLayer(monitor => ({
     isDragging: monitor.isDragging(),
     item: monitor.getItem(),
@@ -21,7 +25,7 @@ export function DragPreview() {
         zIndex: 1000,
       }}
     >
-      <DraggableCard suit={item.suit} />
+      {renderItem(item)}
     </div>
   )
 }
