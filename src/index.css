@@ -76,21 +76,19 @@ button:focus-visible {
 /* Unified Styles */
 html, body, #root {
   height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
-  width: 100%;
 }
 
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  background-color: #fff0f6;
-  color: #333;
+  background-color: #000000;
+  color: #ffffff;
+  overflow: hidden;
+  position: fixed;
 }
-
-/* * {
-  outline: 1px solid red;
-} */
 
 .page-container {
   display: flex;
@@ -100,7 +98,6 @@ body {
   align-items: center;
   /* horizontal centering */
   min-height: 100vh;
-  padding: 2rem;
   box-sizing: border-box;
   text-align: center;
 }
@@ -117,8 +114,8 @@ button {
   cursor: pointer;
   border-radius: 8px;
   border: none;
-  background-color: #e91e63;
-  color: white;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
   transition: background-color 0.3s ease;
 }
 
