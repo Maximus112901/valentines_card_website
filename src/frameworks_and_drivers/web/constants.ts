@@ -29,10 +29,10 @@ export const CLUBS_PAGE = {
 export const DIAMONDS_PAGE = {
   SUIT_NAME: 'diamonds',
   ICON: SUITS.DIAMONDS,
-  JA_TITLE: '',
-  EN_TITLE: '',
-  JA_MESSAGE: '',
-  EN_MESSAGE: '',
+  JA_TITLE: '謎',
+  EN_TITLE: 'RIDDLE',
+  JA_MESSAGE: 'すべての謎は単なる答え以上のものを明らかにします。',
+  EN_MESSAGE: 'Every riddle reveals more than just an answer.',
 }
 
 export const HEARTS_PAGE = {

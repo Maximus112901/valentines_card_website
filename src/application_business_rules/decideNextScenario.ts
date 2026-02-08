@@ -15,6 +15,9 @@ const transitions: Record<ScenarioKey, Partial<Record<EventKey, ScenarioKey>>> =
   CLUBS: {
     GO_BACK: 'WELCOME',
   },
+  DIAMONDS: {
+    GO_BACK: 'WELCOME',
+  },
 };
 
 export function decideNextScenario(
