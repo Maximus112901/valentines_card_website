@@ -14,3 +14,7 @@
     justify-content: center;
     gap: 20px;
 }
+
+.submitButton {
+    width: 50%
+}

@@ -66,7 +66,6 @@ export function ClubsGame() {
     // Check if player won
     useEffect(() => {
         if (ownedCards.length === 0 && leftWeight === rightWeight) {
-            console.log("you won!")
             dispatch({ suit: "clubs", payload: true })
         }
     }, [leftSideCards, rightSideCards])

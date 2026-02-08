@@ -16,18 +16,18 @@ export function DiamondsGame() {
     }
     const [answersState, setAnswersState] = useState<Record<AnswerKey, string>>(answers)
 
-    // 
     const handleChange = (e: any) => {
         const { name, value } = e.target;
 
         setAnswersState(prev => ({
             ...prev,
-            [name]: value
+            [name]: value.trim().toLowerCase()
         }));
     };
 
     // Check if player won
     const checkAnswers = () => {
+        let allCorrect = true; 
         const answersStateKeys = Object.keys(answersState) as AnswerKey[]        
         for (const key of answersStateKeys) {
             if (answersState[key] != DIAMONDS_PAGE[key]) {
@@ -36,7 +36,13 @@ export function DiamondsGame() {
                     ...prev,
                     [key]: ''
                 }));
+
+                allCorrect = allCorrect && false;
             }
+        }
+
+        if (allCorrect){
+            dispatch({ suit: "diamonds", payload: true })
         }
     }
 
@@ -82,7 +88,7 @@ export function DiamondsGame() {
                 </div>
             </div>
 
-            <button onClick={checkAnswers}>{BUTTON_LABELS.SUBMIT}</button>
+            <button className={styles.submitButton} onClick={checkAnswers}>{BUTTON_LABELS.SUBMIT}</button>
         </div>
     );
 }
